@@ -42,7 +42,8 @@ class ProductProvider extends ChangeNotifier {
   // =====================================================
   Future<bool> createProduct(ProductModel product) async {
     try {
-      await _productRepo.createProduct(product);
+      final int newId = await _productRepo.createProduct(product);
+      product = product.copyWith(id: newId);
       _products.insert(0, product);
       notifyListeners();
       return true;

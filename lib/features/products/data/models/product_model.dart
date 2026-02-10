@@ -16,4 +16,12 @@ class ProductModel {
       quantity: map['quantity'],
     );
   }
+
+  ProductModel copyWith({int? id, String? name, String? quantity}) {
+    return ProductModel(
+      id: id ?? this.id,
+      name: name ?? this.name,
+      quantity: quantity ?? this.quantity,
+    );
+  }
 }

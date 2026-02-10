@@ -24,7 +24,12 @@ class ProductRepository {
 
   Future<int> updateProduct(ProductModel product) async {
     final db = await _dbHelper.database;
-    return await db.update(_table, product.toMap(), whereArgs: [product.id]);
+    return await db.update(
+      _table,
+      product.toMap(),
+      where: 'id = ?',
+      whereArgs: [product.id],
+    );
   }
 
   Future<int> deleteProduct(int id) async {

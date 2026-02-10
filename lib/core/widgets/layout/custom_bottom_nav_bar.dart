@@ -17,74 +17,75 @@ class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
       valueListenable: widget.pageIndex,
       builder: (context, pageValue, _) {
         return Container(
-          height: 77,
           decoration: const BoxDecoration(color: AppColors.secondaryColor),
-          child: BottomNavigationBar(
-            backgroundColor: Colors.transparent,
-            type: BottomNavigationBarType.fixed,
-            elevation: 0,
-            selectedItemColor: AppColors.primaryColor,
-            currentIndex: pageValue,
-            onTap: (value) {
-              switch (value) {
-                case 0:
-                  {
-                    if (pageValue == 0) {
-                      break;
-                    } else {
-                      widget.pageIndex.value = 0;
+          child: SafeArea(
+            child: BottomNavigationBar(
+              backgroundColor: Colors.transparent,
+              type: BottomNavigationBarType.fixed,
+              elevation: 0,
+              selectedItemColor: AppColors.primaryColor,
+              currentIndex: pageValue,
+              onTap: (value) {
+                switch (value) {
+                  case 0:
+                    {
+                      if (pageValue == 0) {
+                        break;
+                      } else {
+                        widget.pageIndex.value = 0;
+                      }
                     }
-                  }
-                  break;
-                case 1:
-                  {
-                    if (pageValue == 1) {
-                      break;
-                    } else {
-                      widget.pageIndex.value = 1;
+                    break;
+                  case 1:
+                    {
+                      if (pageValue == 1) {
+                        break;
+                      } else {
+                        widget.pageIndex.value = 1;
+                      }
                     }
-                  }
-                  break;
-                case 2:
-                  {
-                    if (pageValue == 2) {
-                      break;
-                    } else {
-                      widget.pageIndex.value = 2;
+                    break;
+                  case 2:
+                    {
+                      if (pageValue == 2) {
+                        break;
+                      } else {
+                        widget.pageIndex.value = 2;
+                      }
                     }
-                  }
-                  break;
-              }
-            },
-            items: [
-              BottomNavigationBarItem(
-                icon: Icon(
-                  Icons.grid_view_sharp,
-                  color: pageValue == 0
-                      ? AppColors.primaryColor
-                      : AppColors.textSecondary,
+                    break;
+                }
+              },
+              items: [
+                BottomNavigationBarItem(
+                  icon: Icon(
+                    Icons.grid_view_sharp,
+                    color: pageValue == 0
+                        ? AppColors.primaryColor
+                        : AppColors.textSecondary,
+                  ),
+                  label: "Grid",
                 ),
-                label: "Grid",
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(
-                  Icons.history,
-                  color: pageValue == 1
-                      ? AppColors.primaryColor
-                      : AppColors.textSecondary,
+                BottomNavigationBarItem(
+                  icon: Icon(
+                    Icons.history,
+                    color: pageValue == 1
+                        ? AppColors.primaryColor
+                        : AppColors.textSecondary,
+                  ),
+                  label: "History",
                 ),
-                label: "History",
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(
-                  Icons.settings,
-                  color: pageValue == 2
-                      ? AppColors.primaryColor
-                      : AppColors.textSecondary,
+                BottomNavigationBarItem(
+                  icon: Icon(
+                    Icons.settings,
+                    color: pageValue == 2
+                        ? AppColors.primaryColor
+                        : AppColors.textSecondary,
+                  ),
+                  label: "Settings",
                 ),
-                label: "Settings",
-              ),
-            ],
+              ],
+            ),
           ),
         );
       },
